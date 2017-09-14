@@ -3,6 +3,7 @@
   <hr>
   <%= simple_form_for [@group,@post] do |f| %>
     <%= f.input :content %>
+    <%= f.input :image, as: :file %>
     <%= f.submit "Submit", class: "btn btn-sm btn-primary" %>
   <% end %>
 </div>

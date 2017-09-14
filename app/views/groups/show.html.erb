@@ -22,6 +22,8 @@
       <th>Writer</th>
       <th>Create Time</th>
       <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -34,6 +36,18 @@
           <%= link_to("Edit", edit_group_post_path(post.group, post), class: "btn btn-xs btn-default") %>
           <%= link_to("Destroy", group_post_path(post.group, post), class: "btn btn-xs btn-default", method: :delete, data: {confirm: "Are you sure?"})%>
       </td>
+      <td>
+         <% if post.image.present? %>
+           <%= image_tag(post.image.thumb.url, class: "thumbnail") %>
+        <% else %>
+          <p> No Picture </p>
+        <% end %>
+ </td>
+ <td>
+        <% if post.image.present? %>
+          <%= link_to("Download Image", post.image_url) %>
+        <% end %>
+ </td>
     </tr>
   </tbody>
     <% end %>

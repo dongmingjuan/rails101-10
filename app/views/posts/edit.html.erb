@@ -3,6 +3,13 @@
   <hr>
   <%= simple_form_for [@group,@post] do |f| %>
     <%= f.input :content %>
+    <%= f.input :image, as: :file %>
+    <% if @post.image.present? %>
+        <span>目前商品图</span>
+        <%= image_tag(@post.image.thumb.url, class: "thumbnail") %>
+      <% else %>
+         <p> No Picture </p>
+      <% end %>
     <%= f.submit "Submit", class: "btn btn-sm btn-primary" %>
   <% end %>
 </div>
